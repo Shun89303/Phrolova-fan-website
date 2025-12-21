@@ -41,9 +41,11 @@ header {
 
 /* ABOUT */
 /* ABILITIES */
+/* VOICELINES */
 .about,
 .abilities,
-.gallery {
+.gallery,
+.voicelines {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,4 +82,9 @@ header {
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+/* VOICELINES */
+.voicelines-cc {
+    margin-top: 1rem;
 }
