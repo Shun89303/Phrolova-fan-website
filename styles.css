@@ -1,3 +1,4 @@
+/* UNIVERSAL */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -20,7 +21,6 @@ nav ul {
     list-style: none;
 }
 
-
 /* HEADER */
 header {
     background: url("images/Phrolova_header.jpg");
@@ -40,19 +40,24 @@ header {
 }
 
 /* ABOUT */
-.about {
+/* ABILITIES */
+.about,
+.abilities {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     padding: 0.5rem;
 }
 
-.about-image {
+.about-image,
+.abilities-image {
     width: 400px;
 }
 
-.about-cc {
+.about-cc,
+.abilities-cc {
     display: flex;
     align-items: center;
     gap: 0.5rem;
