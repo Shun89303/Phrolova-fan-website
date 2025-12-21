@@ -42,10 +42,12 @@ header {
 /* ABOUT */
 /* ABILITIES */
 /* VOICELINES */
+/* FOOTER */
 .about,
 .abilities,
 .gallery,
-.voicelines {
+.voicelines,
+footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,5 +88,17 @@ header {
 
 /* VOICELINES */
 .voicelines-cc {
+    margin-top: 1rem;
+}
+
+/* FOOTER */
+.footer-cc {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.footer-copy {
     margin-top: 1rem;
 }
