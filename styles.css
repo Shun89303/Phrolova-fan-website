@@ -19,3 +19,43 @@ nav ul {
 
     list-style: none;
 }
+
+
+/* HEADER */
+header {
+    background: url("images/Phrolova_header.jpg");
+    background-size: cover;
+    background-position: center;
+
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    gap: 0.5rem;
+}
+
+/* ABOUT */
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.about-image {
+    width: 400px;
+}
+
+.about-cc {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    margin-top: 1rem;
+}
