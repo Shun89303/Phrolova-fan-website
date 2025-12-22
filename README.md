@@ -40,7 +40,7 @@
 
 1. Clone the repository:  
 ```
-  git clone <repo-url>
+  git clone https://github.com/Shun89303/Phrolova-fan-website.git
 ```
 2.	Open index.html in a browser.
 3.	Click the Play Music button to start the background audio and falling music notes animation.
