@@ -8,6 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@500;600&family=Lora&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Audio -->
+     <audio id="bg-audio" loop>
+        <source src="audio/Reveries in the Crimson Beyond.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+     </audio>
+
+     <div id="audio-overlay">
+        <button id="play-audio">▶ Play Music</button>
+    </div>
+
+    <div id="leaf-container"></div>
 
     <!-- Navigation -->
     <nav>
@@ -170,5 +181,52 @@
         </div>
     </footer>
 
+    <script>
+        const audio = document.getElementById('bg-audio');
+        const btn = document.getElementById('play-audio');
+        const leafContainer = document.createElement('div');
+        leafContainer.style.position = 'fixed';
+        leafContainer.style.top = '0';
+        leafContainer.style.left = '0';
+        leafContainer.style.width = '100%';
+        leafContainer.style.height = '100%';
+        leafContainer.style.pointerEvents = 'none';
+        leafContainer.style.overflow = 'hidden';
+        leafContainer.style.zIndex = '999';
+        document.body.appendChild(leafContainer);
+
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.textContent = '🍁';
+            leaf.style.position = 'absolute';
+            leaf.style.fontSize = Math.random() * 20 + 20 + 'px'; // 20px to 40px
+            leaf.style.left = Math.random() * window.innerWidth + 'px';
+            leaf.style.top = '-50px';
+            leaf.style.opacity = Math.random() * 0.5 + 0.5;
+            leaf.style.transform = `rotate(${Math.random() * 360}deg)`;
+            leafContainer.appendChild(leaf);
+
+            const duration = Math.random() * 5 + 5; // 5s to 10s
+            leaf.animate([
+                { transform: `translateY(0px) rotate(0deg)`, opacity: leaf.style.opacity },
+                { transform: `translateY(${window.innerHeight + 50}px) rotate(360deg)`, opacity: 0.5 }
+            ], { duration: duration * 1000, iterations: 1 });
+
+            setTimeout(() => leaf.remove(), duration * 1000);
+        }
+
+        btn.addEventListener('click', () => {
+            audio.volume = 0.3;
+            audio.play();
+            btn.style.display = 'none';
+
+            const maxLeaves = 10; // maximum leaves on screen
+            setInterval(() => {
+                if (leafContainer.children.length < maxLeaves) {
+                    createLeaf();
+                }
+            }, 500); // tries to create a leaf every 0.5s
+        });
+    </script>
 </body>
 </html>

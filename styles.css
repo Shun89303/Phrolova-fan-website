@@ -85,6 +85,72 @@ li {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
+/* Audio */
+#bg-audio {
+    display: none;
+}
+
+#audio-overlay {
+    position: fixed;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+#audio-overlay button {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    padding: 1rem 0.5rem;
+    border-radius: 20px;
+    border: 1px solid #FFD754;
+    background: black;
+    color: #FFD754;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#audio-overlay button:hover {
+    background: #FFD754;
+    color: black;
+    border: 1px solid black;
+}
+
+#leaf-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; 
+  overflow: hidden;
+  z-index: 500; 
+}
+
+.leaf {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: red;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall linear;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.8;
+  }
+}
+
 /* =======================
    NAV BAR
 ======================= */
@@ -271,3 +337,4 @@ footer {
 .footer-copy {
     margin-top: 1rem;
 }
+
