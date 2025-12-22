@@ -4,23 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phrolova Fan Website</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@500;600&family=Lora&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Audio -->
-     <audio id="bg-audio" loop>
+
+    <!-- =======================
+         BACKGROUND AUDIO
+    ======================= -->
+    <audio id="bg-audio" loop>
         <source src="audio/Reveries in the Crimson Beyond.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
-     </audio>
+    </audio>
 
-     <div id="audio-overlay">
+    <!-- Music Button (Right Center) -->
+    <div id="audio-overlay">
         <button id="play-audio">▶ Play Music</button>
     </div>
 
+    <!-- Falling Leaves Container -->
     <div id="leaf-container"></div>
 
-    <!-- Navigation -->
+    <!-- =======================
+         NAVIGATION
+    ======================= -->
     <nav>
         <h2>PHROLOVA</h2>
         <ul>
@@ -31,7 +42,9 @@
         </ul>
     </nav>
 
-    <!-- Header Section -->
+    <!-- =======================
+         HEADER
+    ======================= -->
     <header>
         <p class="stars">☆☆☆☆☆</p>
         <h1>PHROLOVA</h1>
@@ -47,17 +60,18 @@
         <button class="discover">Discover Her Story</button>
     </header>
 
+    <!-- =======================
+         MAIN CONTENT
+    ======================= -->
     <main>
 
-        <!-- About Section -->
+        <!-- ABOUT SECTION -->
         <section class="about">
             <h2>The Overseer Of Fractsidus</h2>
             <p>A conductor who walks the fine line between life and death</p>
 
             <div class="about-cc">
-                <div>
-                    <img class="about-image" src="images/Phrolova_about.jpg" alt="Phrolova About">
-                </div>
+                <div><img class="about-image" src="images/Phrolova_about.jpg" alt="Phrolova About"></div>
                 <div class="about-text">
                     <div>
                         <h3>Tragic Origin</h3>
@@ -79,15 +93,15 @@
             </div>
         </section>
 
-        <!-- Abilities Section -->
+        <!-- ABILITIES SECTION -->
         <section class="abilities">
             <h2>Combat Abilities</h2>
             <p>Master the deadly arts of Havoc resonance</p>
 
             <div class="abilities-cc">
-                <div>
-                    <img class="abilities-image" src="images/Phrolova_abilities.jpg" alt="Phrolova Abilities">
-                </div>
+                <div><img class="abilities-image" src="images/Phrolova_abilities.jpg" alt="Phrolova Abilities"></div>
+
+                <!-- Left Ability Column -->
                 <div class="abilities-text">
                     <div>
                         <h3>Havoc Resonance</h3>
@@ -105,6 +119,8 @@
                         <p>Excels as a hypercarry, dealing immense Resonance Skill and Heavy Attack damage when properly built.</p>
                     </div>
                 </div>
+
+                <!-- Right Ability Column -->
                 <div class="abilities-text">
                     <div>
                         <h3>Rectifier Mastery</h3>
@@ -125,7 +141,7 @@
             </div>
         </section>
 
-        <!-- Gallery Section -->
+        <!-- GALLERY SECTION -->
         <section class="gallery">
             <h2>Gallery</h2>
             <p>Artwork celebrating the beauty and power of Phrolova</p>
@@ -138,7 +154,7 @@
             </div>
         </section>
 
-        <!-- Voice Lines Section -->
+        <!-- VOICE LINES SECTION -->
         <section class="voicelines">
             <h2>Voice Lines</h2>
             <p>Words that echo through the void</p>
@@ -169,7 +185,9 @@
 
     </main>
 
-    <!-- Footer Section -->
+    <!-- =======================
+         FOOTER
+    ======================= -->
     <footer>
         <div class="footer-cc">
             <h3>PHROLOVA</h3>
@@ -181,52 +199,9 @@
         </div>
     </footer>
 
-    <script>
-        const audio = document.getElementById('bg-audio');
-        const btn = document.getElementById('play-audio');
-        const leafContainer = document.createElement('div');
-        leafContainer.style.position = 'fixed';
-        leafContainer.style.top = '0';
-        leafContainer.style.left = '0';
-        leafContainer.style.width = '100%';
-        leafContainer.style.height = '100%';
-        leafContainer.style.pointerEvents = 'none';
-        leafContainer.style.overflow = 'hidden';
-        leafContainer.style.zIndex = '999';
-        document.body.appendChild(leafContainer);
-
-        function createLeaf() {
-            const leaf = document.createElement('div');
-            leaf.textContent = '🍁';
-            leaf.style.position = 'absolute';
-            leaf.style.fontSize = Math.random() * 20 + 20 + 'px'; // 20px to 40px
-            leaf.style.left = Math.random() * window.innerWidth + 'px';
-            leaf.style.top = '-50px';
-            leaf.style.opacity = Math.random() * 0.5 + 0.5;
-            leaf.style.transform = `rotate(${Math.random() * 360}deg)`;
-            leafContainer.appendChild(leaf);
-
-            const duration = Math.random() * 5 + 5; // 5s to 10s
-            leaf.animate([
-                { transform: `translateY(0px) rotate(0deg)`, opacity: leaf.style.opacity },
-                { transform: `translateY(${window.innerHeight + 50}px) rotate(360deg)`, opacity: 0.5 }
-            ], { duration: duration * 1000, iterations: 1 });
-
-            setTimeout(() => leaf.remove(), duration * 1000);
-        }
-
-        btn.addEventListener('click', () => {
-            audio.volume = 0.3;
-            audio.play();
-            btn.style.display = 'none';
-
-            const maxLeaves = 10; // maximum leaves on screen
-            setInterval(() => {
-                if (leafContainer.children.length < maxLeaves) {
-                    createLeaf();
-                }
-            }, 500); // tries to create a leaf every 0.5s
-        });
-    </script>
+    <!-- =======================
+         JAVASCRIPT
+    ======================= -->
+    <script src="script.js"></script>
 </body>
 </html>

@@ -3,92 +3,37 @@
 ======================= */
 * {
     box-sizing: border-box;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 /* =======================
    BODY
 ======================= */
 body {
-    background: #919191;
-    background: linear-gradient(180deg,rgba(145, 145, 145, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(105, 0, 0, 1) 100%);
-    
-    color: #f5f5f5;
     font-family: 'Lora', serif;
+    color: #f5f5f5;
+    background: linear-gradient(180deg, rgba(145,145,145,1) 0%, rgba(0,0,0,1) 50%, rgba(105,0,0,1) 100%);
 }
 
-h1, h2 {
-    font-family: 'Cinzel', serif;
-}
+/* =======================
+   HEADINGS
+======================= */
+h1, h2 { font-family: 'Cinzel', serif; }
+h3, h4 { font-family: 'Cormorant Garamond', serif; }
 
-h3, h4 {
-    font-family: 'Cormorant Garamond', serif;
-}
+h1 { font-size: 3rem; font-weight: 700; color: #BA0021; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+h2 { font-size: 2rem; font-weight: 700; color: #BA0021; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+h3 { font-size: 1.5rem; font-weight: 600; color: #BA0021; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+h4 { font-size: 1.2rem; font-weight: 600; color: #C21E56; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
 
-li {
-    font-family: 'Cinzel', serif;
-}
+p, li { font-size: 1rem; color: #DB7093; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+li { font-weight: 700; }
 
-h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.1rem;
-
-    color: #BA0021;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.3;
-    letter-spacing: 0.03em;
-    color: #BA0021;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.4;
-    letter-spacing: 0.02em;
-    color: #BA0021;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    line-height: 1.4;
-    letter-spacing: 0.02em;
-    color: #C21E56;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-p {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
-    color: #DB7093;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-li {
-    font-size: 1.1rem;
-    font-weight: 700;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
-    color: #BA0021;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-/* Audio */
-#bg-audio {
-    display: none;
-}
+/* =======================
+   AUDIO BUTTON
+======================= */
+#bg-audio { display: none; }
 
 #audio-overlay {
     position: fixed;
@@ -119,105 +64,62 @@ li {
     border: 1px solid black;
 }
 
-#leaf-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; 
-  overflow: hidden;
-  z-index: 500; 
-}
-
-.leaf {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background: red;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: fall linear;
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(-50px) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0.8;
-  }
-}
-
 /* =======================
-   NAV BAR
+   FALLING LEAVES
 ======================= */
-nav {
+#leaf-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 500;
+}
 
+/* =======================
+   NAVIGATION
+======================= */
+nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
+    z-index: 1000;
 }
 
-nav ul {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-}
-
-nav h2 {
-    padding-left: 1rem;
-}
+nav ul { display: flex; gap: 1rem; list-style: none; }
 
 /* =======================
    HEADER
 ======================= */
 header {
-    background: url("images/Phrolova_header.jpg");
-    background-size: cover;
-    background-position: center;
     height: 100vh;
-
+    background: url("images/Phrolova_header.jpg") center/cover no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     gap: 0.5rem;
-
     position: relative;
 }
 
 header::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
     z-index: 1;
 }
 
-header > * {
-    position: relative;
-    z-index: 2;
-}
+header > * { position: relative; z-index: 2; }
 
-.header-buttons {
-    display: flex;
-    gap: 0.75rem;
-    margin: 0.5rem 0;
-}
-
+.header-buttons { display: flex; gap: 0.75rem; margin: 0.5rem 0; }
 .header-buttons button {
     min-width: 140px;
     padding: 0.6rem 1.2rem;
@@ -225,116 +127,42 @@ header > * {
     border: 1px solid #FFD754;
     background: transparent;
     color: #FFD754;
-
     font-family: 'Cinzel', serif;
-    font-size: 1.1rem;
     font-weight: 700;
-
+    font-size: 1.1rem;
     transition: all 0.2s ease;
 }
-
-.header-buttons button:hover {
-    background-color: black;
-    color: #D10A0A;
-    border: 1px solid #D10A0A;
-}
+.header-buttons button:hover { background: black; color: #D10A0A; border: 1px solid #D10A0A; }
 
 .discover {
-    width: fit-content;
     padding: 1.5rem 2rem;
     border-radius: 20px;
-    text-wrap: nowrap;
-    text-align: center;
-    background-color: grey;
     border: 2px solid #BA0021;
+    background-color: grey;
     color: #BA0021;
-
     font-family: 'Cinzel', serif;
     font-size: 1.5rem;
     font-weight: 900;
-    line-height: 1.2;
-    letter-spacing: 0.1rem;
     cursor: pointer;
-
     transition: transform 0.25s ease;
 }
-
-.discover:hover {
-    transform: scale(1.06);
-    color: #FFD754;
-    border-color: #FFD754;
-}
-
-.stars {
-    color: #FFD754;
-    font-size: 2rem;
-}
+.discover:hover { transform: scale(1.06); color: #FFD754; border-color: #FFD754; }
 
 /* =======================
-   ABOUT / ABILITIES / VOICELINES / FOOTER
+   SECTIONS (ABOUT / ABILITIES / GALLERY / VOICELINES)
 ======================= */
-.about,
-.abilities,
-.gallery,
-.voicelines,
-footer {
+.about, .abilities, .gallery, .voicelines, footer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 0.5rem;
 }
 
-/* Images */
-.about-image,
-.abilities-image {
-    width: 400px;
-}
+.about-image, .abilities-image { width: 400px; }
+.about-cc, .abilities-cc { display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem; }
+.gallery-cc { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 0.5rem; margin-top: 1rem; }
+.gallery img { width: 100%; height: auto; object-fit: cover; }
 
-/* About & Abilities Containers */
-.about-cc,
-.abilities-cc {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-/* =======================
-   GALLERY
-======================= */
-.gallery-cc {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.gallery img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-/* =======================
-   VOICELINES
-======================= */
-.voicelines-cc {
-    margin-top: 1rem;
-}
-
-/* =======================
-   FOOTER
-======================= */
-.footer-cc {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-align: center;
-}
-
-.footer-copy {
-    margin-top: 1rem;
-}
-
+/* FOOTER */
+.footer-cc { display: flex; align-items: center; gap: 0.5rem; text-align: center; }
+.footer-copy { margin-top: 1rem; }
