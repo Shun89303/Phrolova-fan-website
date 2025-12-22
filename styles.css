@@ -7,6 +7,9 @@
     margin: 0;
 }
 
+/* =======================
+   BODY
+======================= */
 body {
     background: #919191;
     background: linear-gradient(180deg,rgba(145, 145, 145, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(105, 0, 0, 1) 100%);
@@ -50,6 +53,24 @@ header {
     justify-content: center;
     text-align: center;
     gap: 0.5rem;
+
+    position: relative;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+header > * {
+    position: relative;
+    z-index: 2;
 }
 
 /* =======================
