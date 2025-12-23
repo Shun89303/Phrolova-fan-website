@@ -50,7 +50,7 @@ function createLeaf() {
 // ===========================
 // FUNCTION: START LEAF ANIMATION
 // ===========================
-function startLeafAnimation(maxLeaves = 30, interval = 600) {
+function startLeafAnimation(maxLeaves = 50, interval = 600) {
     setInterval(() => {
         if (leafContainer.children.length < maxLeaves) {
             createLeaf();
