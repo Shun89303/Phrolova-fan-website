@@ -13,7 +13,7 @@
 body {
     font-family: 'Lora', serif;
     color: #f5f5f5;
-    background: linear-gradient(180deg, rgba(145,145,145,1) 0%, rgba(0,0,0,1) 50%, rgba(105,0,0,1) 100%);
+    background: linear-gradient(180deg, rgb(145, 145, 145) 0%, rgba(0,0,0,1) 50%, rgba(105,0,0,1) 100%);
 }
 
 /* =======================
@@ -25,9 +25,9 @@ h3, h4 { font-family: 'Cormorant Garamond', serif; }
 h1 { font-size: 3rem; font-weight: 700; color: #BA0021; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
 h2 { font-size: 2rem; font-weight: 700; color: #BA0021; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
 h3 { font-size: 1.5rem; font-weight: 600; color: #BA0021; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-h4 { font-size: 1.2rem; font-weight: 600; color: #C21E56; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+h4 { font-size: 1.2rem; font-weight: 600; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
 
-p, li { font-size: 1rem; color: #DB7093; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+p, li { font-size: 1rem; color: #919191; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
 li { font-weight: 700; }
 
 /* =======================
@@ -48,9 +48,9 @@ li { font-weight: 700; }
     text-orientation: mixed;
     padding: 1rem 0.5rem;
     border-radius: 20px;
-    border: 1px solid #FFD754;
+    border: 1px solid #D10A0A;
     background: black;
-    color: #FFD754;
+    color: #D10A0A;
     font-family: 'Cinzel', serif;
     font-weight: 700;
     font-size: 1rem;
@@ -59,7 +59,7 @@ li { font-weight: 700; }
 }
 
 #audio-overlay button:hover {
-    background: #FFD754;
+    background: #D10A0A;
     color: black;
     border: 1px solid black;
 }
@@ -124,29 +124,33 @@ header > * { position: relative; z-index: 2; }
     min-width: 140px;
     padding: 0.6rem 1.2rem;
     border-radius: 999px;
-    border: 1px solid #FFD754;
+    border: 1px solid #D10A0A;
     background: transparent;
-    color: #FFD754;
+    color: #D10A0A;
     font-family: 'Cinzel', serif;
     font-weight: 700;
     font-size: 1.1rem;
     transition: all 0.2s ease;
 }
-.header-buttons button:hover { background: black; color: #D10A0A; border: 1px solid #D10A0A; }
+.header-buttons button:hover { background: black;}
 
 .discover {
     padding: 1.5rem 2rem;
     border-radius: 20px;
-    border: 2px solid #BA0021;
-    background-color: grey;
-    color: #BA0021;
+    border: 2px solid #D10A0A;
+    background-color: black;
+    color: #D10A0A;
     font-family: 'Cinzel', serif;
     font-size: 1.5rem;
     font-weight: 900;
     cursor: pointer;
-    transition: transform 0.25s ease;
+    transition: all 0.2s ease;
 }
-.discover:hover { transform: scale(1.06); color: #FFD754; border-color: #FFD754; }
+.discover:hover { color: black; border-color: black; background-color: #D10A0A; }
+
+header .stars {
+    color: #FFD754;
+}
 
 /* =======================
    SECTIONS (ABOUT / ABILITIES / GALLERY / VOICELINES)
@@ -162,6 +166,13 @@ header > * { position: relative; z-index: 2; }
 .about-cc, .abilities-cc { display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem; }
 .gallery-cc { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 0.5rem; margin-top: 1rem; }
 .gallery img { width: 100%; height: auto; object-fit: cover; }
+
+/* =======================
+   SECTION (ABOUT)
+======================= */
+.about {
+    width: 100vh;
+}
 
 /* FOOTER */
 .footer-cc { display: flex; align-items: center; gap: 0.5rem; text-align: center; }
