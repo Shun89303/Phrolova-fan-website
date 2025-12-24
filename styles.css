@@ -167,7 +167,7 @@ header .stars {
 
 .about-image, .abilities-image { width: 100%; }
 .about-cc, .abilities-cc { display: flex; justify-content: center; align-items: flex-start; gap: 1rem; margin-top: 1rem; padding-bottom: 60px; }
-.gallery-cc { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 0.5rem; margin-top: 1rem; }
+.gallery-cc { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 2rem; margin-top: 1rem; }
 .gallery img { width: 100%; height: auto; object-fit: cover; }
 
 /* =======================
@@ -221,6 +221,7 @@ header .stars {
     gap: 1rem;
     border-bottom: 2.5px solid #D10A0A;
 }
+
 .abilities h2 {
     font-size: 3rem;
 }
@@ -256,6 +257,30 @@ header .stars {
     gap: 0.5rem;
 
     padding: 10px 50px;
+}
+
+/* =======================
+   SECTION (GALLERY)
+======================= */
+.gallery {
+    gap: 1rem;
+    border-bottom: 2.5px solid #D10A0A;
+}
+
+.gallery h2 {
+    font-size: 3rem;
+}
+
+.gallery img {
+    display: block;
+    margin: 0 auto;
+
+    border-bottom: 0.2rem solid #D10A0A;
+    border-radius: 2rem;
+}
+
+.gallery-cc {
+    padding-bottom: 3rem;
 }
 
 /* FOOTER */
