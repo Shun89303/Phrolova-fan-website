@@ -283,6 +283,56 @@ header .stars {
     padding-bottom: 3rem;
 }
 
+/* =======================
+   SECTION (VOICELINES)
+======================= */
+.voicelines {
+    gap: 1rem;
+    border-bottom: 2.5px solid #D10A0A;
+}
+
+.voicelines h2 {
+    font-size: 3rem;
+}
+
+.voicelines-cc {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+
+    padding-bottom: 3rem;
+}
+
+.voicelines-cc div {
+    border-bottom: 0.2rem solid #D10A0A;
+    border-radius: 2rem;
+    background-color: black;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    padding: 10px 50px;
+}
+
+
 /* FOOTER */
-.footer-cc { display: flex; align-items: center; gap: 0.5rem; text-align: center; }
-.footer-copy { margin-top: 1rem; }
+footer {
+    padding: 0.5rem 2rem;
+}
+.footer-cc { 
+    display: flex; 
+    align-items: flex-start; 
+    justify-content: center;
+    gap: 10rem; 
+    text-align: center; 
+}
+
+.footer-copy { 
+    margin-top: 1rem; 
+}
+
+.footer-copy p { 
+    color: black;
+}
