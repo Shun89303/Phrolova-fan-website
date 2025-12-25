@@ -17,18 +17,92 @@ body {
 }
 
 /* =======================
-   HEADINGS
+   TYPOGRAPHY
 ======================= */
-h1, h2 { font-family: 'Cinzel', serif; }
-h3, h4 { font-family: 'Cormorant Garamond', serif; }
+h1, h2 { 
+    font-family: 'Cinzel', serif; 
+}
+h3, h4 { 
+    font-family: 'Cormorant Garamond', serif; 
+}
 
-h1 { font-size: 3rem; font-weight: 700; color: #BA0021; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-h2 { font-size: 2rem; font-weight: 700; color: #BA0021; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-h3 { font-size: 1.5rem; font-weight: 600; color: #BA0021; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-h4 { font-size: 1.2rem; font-weight: 600; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+h1 { 
+    font-size: 3rem; 
+    font-weight: 700; 
+    color: #BA0021; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+}
 
-p, li { font-size: 1rem; color: #919191; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-li { font-weight: 700; }
+h2 { 
+    font-size: 2rem; 
+    font-weight: 700; 
+    color: #BA0021; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+}
+
+h3 { 
+    font-size: 1.5rem; 
+    font-weight: 600; 
+    color: #BA0021; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+}
+
+h4 { 
+    font-size: 1.2rem; 
+    font-weight: 600; 
+    color: white; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+}
+
+p, li { 
+    font-size: 1rem; 
+    color: #919191; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+}
+
+li { 
+    font-weight: 700; 
+}
+
+/* =======================
+   TEXT SHIMMER EFFECTS
+======================= */
+.masked-shimmer {
+    letter-spacing: 0.15em;
+    color: transparent;
+    background-image: linear-gradient(
+        90deg,
+        #b5b5b5 45%,
+        #ffffff 50%,
+        #b5b5b5 55%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmerLR 5s ease-in-out infinite;
+}
+
+.red-shimmer {
+    letter-spacing: 0.15em;
+    color: transparent;
+    background-image: linear-gradient(
+        120deg,
+        #8f1a1a 40%,
+        #ff4d4d 50%,
+        #8f1a1a 60%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmerLR 3s ease-in-out infinite;
+}
+
+@keyframes shimmerLR {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
 
 /* =======================
    AUDIO BUTTON
@@ -94,6 +168,39 @@ nav {
 
 nav ul { display: flex; gap: 1rem; list-style: none; }
 
+nav ul li {
+    position: relative;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+nav ul li:hover {
+    color: #D10A0A;
+}
+
+nav ul li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 15%;
+    height: 2px;          
+    width: 0%;
+    background-color: #D10A0A; 
+    transition: width 0.2s ease-in-out, left 0.2s ease-in-out;
+}
+
+nav ul li:hover::after {
+    width: 100%; 
+    left: 0;
+}
+
+nav ul li:not(:hover)::after {
+    left: 0;     
+    right: auto;
+    width: 0%;
+}
+
 /* =======================
    HEADER
 ======================= */
@@ -122,18 +229,55 @@ header > * { position: relative; z-index: 2; }
 
 .header-buttons { display: flex; gap: 0.75rem; margin: 0.5rem 0; }
 .header-buttons button {
+    position: relative;
     min-width: 140px;
     padding: 0.6rem 1.2rem;
-    border-radius: 999px;
-    border: 1px solid #D10A0A;
     background: transparent;
+    border: none;
     color: #D10A0A;
     font-family: 'Cinzel', serif;
     font-weight: 700;
     font-size: 1.1rem;
-    transition: all 0.2s ease;
+    overflow: hidden;
 }
-.header-buttons button:hover { background: black;}
+.header-buttons button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 0.5rem;
+
+    background:
+        linear-gradient(90deg, transparent 30%, #D10A0A 50%, transparent 70%) top / 200% 2px,
+        linear-gradient(180deg, transparent 30%, #D10A0A 50%, transparent 70%) right / 2px 200%,
+        linear-gradient(270deg, transparent 30%, #D10A0A 50%, transparent 70%) bottom / 200% 2px,
+        linear-gradient(360deg, transparent 30%, #D10A0A 50%, transparent 70%) left / 2px 200%;
+
+    background-repeat: no-repeat;
+    animation: borderTrail 3s linear infinite;
+}
+
+.header-buttons button:hover {
+    color: black;
+    background-color: red;
+}
+
+@keyframes borderTrail {
+    0% {
+        background-position:
+            -200% 0,
+            100% -200%,
+            200% 100%,
+            0 200%;
+    }
+    100% {
+        background-position:
+            200% 0,
+            100% 200%,
+            -200% 100%,
+            0 -200%;
+    }
+}
 
 .discover {
     padding: 1.5rem 2rem;
@@ -145,9 +289,31 @@ header > * { position: relative; z-index: 2; }
     font-size: 1.5rem;
     font-weight: 900;
     cursor: pointer;
+    animation: discoverPulse 3s ease-in-out infinite;
     transition: all 0.2s ease;
 }
-.discover:hover { color: black; border-color: black; background-color: #D10A0A; }
+.discover:hover { 
+    animation: none;
+    color: black; 
+    border-color: black; 
+    background-color: #D10A0A; 
+    transform: scale(1.05);
+}
+
+@keyframes discoverPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(209, 10, 10, 0);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 18px rgba(209, 10, 10, 0.35);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(209, 10, 10, 0);
+    }
+}
 
 header .stars {
     color: #FFD754;
@@ -199,7 +365,14 @@ header .stars {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-top: 2rem;
+}
+
+.about-tc-content {
+    transition: all 0.25s ease-in-out;
+}
+
+.about-tc-content:hover {
+    transform: translateY(-10%);
 }
 
 .about-tc div {
@@ -212,6 +385,15 @@ header .stars {
     gap: 0.5rem;
 
     padding: 10px 50px;
+}
+
+.about-text {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+}
+
+.about-text:hover {
+    opacity: 1;
 }
 
 /* =======================
@@ -237,7 +419,7 @@ header .stars {
     border-bottom: 0.2rem solid #D10A0A;
     border-radius: 3rem;
 
-    margin-top: 4.5rem;
+    margin-top: 5rem;
 }
 
 .abilities-tc {
@@ -245,6 +427,23 @@ header .stars {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.abilities-tc-content {
+    transition: all 0.3s ease;
+}
+
+.abilities-tc-content:hover {
+    transform: translateY(-10%);
+}
+
+.abilities-text {
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
+}
+
+.abilities-text:hover {
+    opacity: 1;
 }
 
 .abilities-tc div {
@@ -314,6 +513,14 @@ header .stars {
     gap: 0.5rem;
 
     padding: 10px 50px;
+}
+
+.voicelines-cc-content {
+    transition: all 0.1s ease-in-out;
+}
+
+.voicelines-cc-content:hover {
+    transform: translateY(-5%);
 }
 
 
