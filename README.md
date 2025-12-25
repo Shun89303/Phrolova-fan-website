@@ -1,81 +1,58 @@
 
 Phrolova Fan Website
 
-Version: 3.0 (Display Stage)
+Version: 3.1 (Display Stage)
 Author: Shun
-Description: A fan-made website dedicated to Phrolova from Wuthering Waves. This version showcases the complete layout and visual design, though interactive features are not yet implemented.
+Description: Fan-made website for Phrolova from Wuthering Waves. Full layout and visual design ready; interactive features in progress.
 
 ⸻
 
-Current Features
-	•	Background Music
-	•	Floating vertical button to play music.
-	•	Music loops automatically when started.
-	•	Falling Music Notes Animation
-	•	Music notes fall from the top of the screen when music is played.
-	•	Configurable via script.js (startLeafAnimation(maxLeaves, interval)).
-	•	Navigation Bar
-	•	Sticky top navigation linking sections: About, Abilities, Gallery, Quotes.
-	•	Partial styling applied.
-	•	Header Section
-	•	Full-screen header with background image, title, subtitle, buttons, and quote.
-	•	Fully visually styled.
-	•	Main Content Sections
-	•	About, Abilities, Gallery, Voice Lines, Footer
-	•	Layout complete and visually styled for display.
-	•	Content blocks and images are arranged with borders, rounded corners, and consistent theme.
+Features
+	•	Background Music: Floating play button, loops automatically.
+	•	Falling Music Notes: Configurable via script.js, triggered with music.
+	•	Navigation Bar: Sticky, visually styled, links sections (About, Abilities, Gallery, Voice Lines).
+	•	Header: Full-screen, background image, animated shimmer text, styled buttons.
+	•	Main Sections: About, Abilities, Gallery, Voice Lines, Footer—fully styled with hover effects, borders, and rounded corners.
 
 ⸻
 
-Work-in-Progress / Next Steps
-	•	Interactivity:
-	•	Navigation links currently do not scroll to sections.
-	•	Buttons inside sections are placeholders.
-	•	Responsive Design:
-	•	Basic layout adjusts for different screen sizes, but full responsiveness is not yet implemented.
-	•	Enhancements:
-	•	Hover effects, modals, or additional animations may be added.
-	•	Accessibility improvements (ARIA labels, alt text refinements).
+Next Steps
+	•	Add scroll functionality to nav links.
+	•	Implement interactivity for buttons.
+	•	Complete responsive design.
+	•	Enhance accessibility and animations.
 
 ⸻
 
-Installation / Usage
-	1.	Clone the repository:
+Installation
 ```
 git clone https://github.com/Shun89303/Phrolova-fan-website.git
 ```
-	2.	Open index.html in a web browser.
-	3.	Click the Play Music button to start the background audio and falling music notes animation.
+	•	Open index.html in a browser.
+	•	Click the Play Music button to start audio and falling notes animation.
 
 ⸻
 
 File Structure
 
 / (root)
-│─ index.html        # Main website structure
-│─ styles.css        # Visual styling (complete for display stage)
-│─ script.js         # JavaScript: audio and falling music notes animation
-│─ /images/          # All image assets
-│─ /audio/           # Background music files
+│─ index.html
+│─ styles.css
+│─ script.js
+│─ /images/
+│─ /audio/
 
 
 ⸻
 
 Notes
-	•	Falling Music Notes Animation:
-	•	Controlled in script.js by startLeafAnimation(maxLeaves, interval).
-	•	Notes fall only when music is played.
-	•	Styling:
-	•	Navigation bar, header, main content, gallery, and footer visually complete for display.
-	•	Interactive actions not yet implemented.
-	•	Responsive Design:
-	•	Minimal adjustments applied. Full responsiveness will be implemented in future versions.
+	•	Music notes fall only when audio plays.
+	•	Visual design is complete; interactions and responsiveness are ongoing.
 
 ⸻
 
 License / Credits
-	•	Fan-made website for Phrolova from Wuthering Waves.
-	•	All images and references belong to Kuro Games.
+	•	Fan-made; images and references belong to Kuro Games (Wuthering Waves).
 	•	Not affiliated with Kuro Games.
 
 ⸻
