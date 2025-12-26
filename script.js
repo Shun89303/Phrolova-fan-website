@@ -1,8 +1,70 @@
+const sections = document.querySelectorAll('section, header');
+const navLinks = document.querySelectorAll('nav ul li a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// ===========================
+// FADE TRANSITION NAVIGATION
+// ===========================
+
+// Create overlay for fade effect
+const fadeOverlay = document.createElement('div');
+fadeOverlay.style.position = 'fixed';
+fadeOverlay.style.top = '0';
+fadeOverlay.style.left = '0';
+fadeOverlay.style.width = '100%';
+fadeOverlay.style.height = '100%';
+fadeOverlay.style.backgroundColor = 'black';
+fadeOverlay.style.opacity = '0';
+fadeOverlay.style.pointerEvents = 'none';
+fadeOverlay.style.transition = 'opacity 0.5s ease';
+fadeOverlay.style.zIndex = '2000';
+document.body.appendChild(fadeOverlay);
+
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); // prevent default jump
+
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        // Start fade out
+        fadeOverlay.style.opacity = '1';
+        fadeOverlay.style.pointerEvents = 'all';
+
+        setTimeout(() => {
+            // Scroll to the section after fade out
+            targetSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+
+            // Fade back in
+            fadeOverlay.style.opacity = '0';
+            fadeOverlay.style.pointerEvents = 'none';
+        }, 500); // match transition duration
+    });
+});
+
 // ===========================
 // AUDIO SETUP
 // ===========================
 const audio = document.getElementById('bg-audio');
 const playButton = document.getElementById('play-audio');
+
+let leafAnimationStarted = false;
 
 // ===========================
 // LEAF CONTAINER SETUP
@@ -59,11 +121,21 @@ function startLeafAnimation(maxLeaves = 50, interval = 600) {
 }
 
 // ===========================
-// PLAY BUTTON CLICK EVENT
+// PLAY/PAUSE BUTTON TOGGLE
 // ===========================
 playButton.addEventListener('click', () => {
-    audio.volume = 0.3;
-    audio.play();
-    playButton.style.display = 'none'; // hide button after click
-    startLeafAnimation(10, 800); // start leaf animation with 10 max leaves
+    if (audio.paused) {
+        audio.volume = 0.3;
+        audio.play();
+        playButton.textContent = '⏸ Pause Music';
+
+        // Start leaf animation only once
+        if (!leafAnimationStarted) {
+            startLeafAnimation(50, 600);
+            leafAnimationStarted = true;
+        }
+    } else {
+        audio.pause();
+        playButton.textContent = '▶ Play Music';
+    }
 });
