@@ -528,6 +528,11 @@ header .stars {
 footer {
     padding: 0.5rem 2rem;
 }
+
+footer h3 {
+    text-wrap: nowrap;
+}
+
 .footer-cc { 
     display: flex; 
     align-items: flex-start; 
