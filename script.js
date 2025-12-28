@@ -1,5 +1,5 @@
 const sections = document.querySelectorAll('section, header');
-const navLinks = document.querySelectorAll('nav ul li a');
+const navLinks = document.querySelectorAll('nav ul li a, .discover');
 
 window.addEventListener('scroll', () => {
   let current = '';
@@ -35,6 +35,33 @@ fadeOverlay.style.pointerEvents = 'none';
 fadeOverlay.style.transition = 'opacity 0.5s ease';
 fadeOverlay.style.zIndex = '2000';
 document.body.appendChild(fadeOverlay);
+
+document.querySelectorAll('.see-more').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = link.href;
+
+        fadeOverlay.style.opacity = '1';
+
+        setTimeout(() => {
+            window.location.href = target;
+        }, 500);
+    }); 
+});
+
+window.addEventListener('load', () => {
+  const overlay = document.getElementById('fade-overlay');
+  if (!overlay) return;
+
+  // Ensure browser paints opacity:1 first
+  overlay.getBoundingClientRect();
+
+  overlay.style.opacity = '0';
+
+  setTimeout(() => {
+    overlay.remove();
+  }, 1000); // must match CSS transition
+});
 
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
